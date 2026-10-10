@@ -16,15 +16,19 @@ host a separate wiki, and it needs no Python, Node.js, or build step.
 ## Play
 
 1. Select the extension icon.
-2. Enter the starting and goal article titles, then select **Start challenge**.
-3. The extension checks that both titles have articles on English Wikipedia,
-   following redirects. If Wikipedia cannot be reached for the check, the
-   challenge does not start; retry when you are online.
+2. Enter the starting and goal article titles, or select **Random** beside
+   either field to fill it with an article randomly selected from English
+   Wikipedia's 100 most-viewed pages from the previous UTC day.
+3. Select **Start challenge**. The extension checks that both titles have
+   articles on English Wikipedia, following redirects. If Wikipedia cannot be
+   reached for the check, the challenge does not start; retry when you are
+   online.
 4. The current tab opens the starting article on English Wikipedia. Continue
    browsing Wikipedia and Google in that same tab.
 
 The starting page is not counted. Each later page load on Wikipedia or Google,
 including Back and Forward navigation, counts as one step. Other websites and
-pages opened in a different tab are not counted. The extension only requests
-access to Wikipedia, Google, the active tab, local extension storage, and
-navigation events; it does not collect or transmit browsing data.
+pages opened in a different tab are not counted. The extension requests access
+to Wikipedia and Wikimedia for article checks and popular-article rankings,
+Google, the active tab, local extension storage, and navigation events. It does
+not collect or transmit browsing data.

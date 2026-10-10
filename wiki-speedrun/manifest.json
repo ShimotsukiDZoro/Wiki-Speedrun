@@ -11,6 +11,7 @@
   "host_permissions": [
     "https://wikipedia.org/*",
     "https://*.wikipedia.org/*",
+    "https://wikimedia.org/*",
     "https://google.com/*",
     "https://*.google.com/*"
   ],

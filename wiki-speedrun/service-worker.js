@@ -102,6 +102,60 @@ async function verifyArticleExists(title) {
   }
 }
 
+async function getRandomArticle() {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() - 1);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const url =
+    `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/` +
+    `en.wikipedia/all-access/${year}/${month}/${day}`;
+
+  let response;
+  try {
+    response = await fetch(url);
+  } catch {
+    throw new Error(
+      "Could not get popular articles from Wikipedia. Check your connection and try again.",
+    );
+  }
+
+  if (!response.ok) {
+    throw new Error(
+      `Wikipedia could not provide popular articles (HTTP ${response.status}). Try again.`,
+    );
+  }
+
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    throw new Error("Wikipedia returned an invalid popular-articles response.");
+  }
+
+  const articles = data?.items?.[0]?.articles;
+  if (!Array.isArray(articles)) {
+    throw new Error("Wikipedia returned an invalid popular-articles response.");
+  }
+
+  const candidates = articles
+    .slice(0, 100)
+    .filter(
+      (article) =>
+        typeof article.article === "string" &&
+        article.article !== "Main_Page" &&
+        !article.article.includes(":"),
+    )
+    .map((article) => decodeURIComponent(article.article).replaceAll("_", " "));
+
+  if (candidates.length === 0) {
+    throw new Error("Wikipedia did not return any eligible popular articles.");
+  }
+
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
+
 async function startChallenge(startTitle, goalTitle) {
   if (typeof startTitle !== "string" || typeof goalTitle !== "string") {
     throw new Error("Enter both a starting article and a goal article.");
@@ -146,6 +200,13 @@ async function startChallenge(startTitle, goalTitle) {
 }
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (message?.type === "getRandomArticle") {
+    getRandomArticle()
+      .then((title) => sendResponse({ ok: true, title }))
+      .catch((error) => sendResponse({ ok: false, error: error.message }));
+    return true;
+  }
+
   if (message?.type === "startChallenge") {
     startChallenge(message.startTitle, message.goalTitle)
       .then(() => sendResponse({ ok: true }))

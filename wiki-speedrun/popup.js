@@ -4,6 +4,7 @@ const endButton = document.querySelector("#end-button");
 const statusSection = document.querySelector("#challenge-status");
 const statusText = document.querySelector("#status-text");
 const errorMessage = document.querySelector("#error-message");
+const randomButtons = document.querySelectorAll(".random-button");
 
 function elapsedText(startedAt, endedAt = Date.now()) {
   if (startedAt === null) {
@@ -43,6 +44,30 @@ function showError(message) {
   errorMessage.textContent = message;
   errorMessage.hidden = false;
 }
+
+randomButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    errorMessage.hidden = true;
+    button.disabled = true;
+
+    try {
+      const response = await chrome.runtime.sendMessage({
+        type: "getRandomArticle",
+      });
+      if (!response?.ok) {
+        showError(response?.error || "Could not get a random article.");
+        return;
+      }
+
+      const input = document.querySelector(`#${button.dataset.target}`);
+      input.value = response.title;
+    } catch (error) {
+      showError(`Could not get a random article: ${error.message}`);
+    } finally {
+      button.disabled = false;
+    }
+  });
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
