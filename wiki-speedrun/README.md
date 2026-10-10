@@ -1,8 +1,7 @@
 # Wikipedia Speedrun
 
-A small Chrome and Microsoft Edge extension for racing between articles on the
-real Wikipedia website. It works in your normal browser; it does not create or
-host a separate wiki, and it needs no Python, Node.js, or build step.
+A small Chrome and Microsoft Edge extension for racing between articles on the 
+Wikipedia website. It works in your normal browser.
 
 ## Install from a GitHub download
 
