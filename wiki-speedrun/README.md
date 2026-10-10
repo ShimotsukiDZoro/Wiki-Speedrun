@@ -1,7 +1,8 @@
 # Wikipedia Speedrun
 
-A small Chrome and Microsoft Edge extension for racing between articles on the 
-Wikipedia website. It works in your normal browser.
+A small Chrome and Microsoft Edge extension for racing between articles on the
+real Wikipedia website. It works in your normal browser; it does not create or
+host a separate wiki, and it needs no Python, Node.js, or build step.
 
 ## Install from a GitHub download
 
@@ -26,8 +27,11 @@ Wikipedia website. It works in your normal browser.
    browsing Wikipedia and Google in that same tab.
 
 The starting page is not counted. Each later page load on Wikipedia or Google,
-including Back and Forward navigation, counts as one step. Other websites and
-pages opened in a different tab are not counted. The extension requests access
-to Wikipedia and Wikimedia for article checks and popular-article rankings,
-Google, the active tab, local extension storage, and navigation events. It does
-not collect or transmit browsing data.
+including Back and Forward navigation, counts as one step. Submitting a query
+in Wikipedia's search bar immediately disqualifies the challenge and displays a
+warning on the page. Goal matching accepts common singular/plural forms (for
+example, **Pancakes** and **Pancake**). Other websites and pages opened in a
+different tab are not counted. The extension requests access to Wikipedia and
+Wikimedia for article checks and popular-article rankings, Google, the active
+tab, local extension storage, and navigation events. It does not collect or
+transmit browsing data.

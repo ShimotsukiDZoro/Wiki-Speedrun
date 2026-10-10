@@ -29,6 +29,10 @@ async function renderStatus() {
       `Goal reached: ${challenge.startTitle} → ${challenge.goalTitle}\n` +
       `${challenge.steps} steps · ${elapsedText(challenge.startedAt, challenge.wonAt)}`;
     endButton.hidden = true;
+  } else if (challenge.disqualifiedAt) {
+    statusText.textContent =
+      "You are disqualified for searching in the Wikipedia search bar.";
+    endButton.hidden = true;
   } else if (!challenge.active) {
     statusText.textContent = "Challenge ended.";
     endButton.hidden = true;
