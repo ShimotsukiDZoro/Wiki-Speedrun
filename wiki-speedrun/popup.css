@@ -34,13 +34,19 @@ form {
   margin-top: 16px;
 }
 
-label {
+.article-field label {
   margin-top: 4px;
   font-weight: 600;
 }
 
+.input-row {
+  display: flex;
+  gap: 6px;
+}
+
 input {
   width: 100%;
+  min-width: 0;
   padding: 9px 10px;
   border: 1px solid #cbd3e1;
   border-radius: 7px;
@@ -84,6 +90,13 @@ button:disabled {
 
 .secondary:hover {
   background: #e9eef8;
+}
+
+.random-button {
+  flex: 0 0 auto;
+  width: auto;
+  margin-top: 0;
+  padding: 8px 10px;
 }
 
 #challenge-status {

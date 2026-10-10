@@ -17,17 +17,27 @@
       </section>
 
       <form id="challenge-form">
-        <label for="start-title">Starting article</label>
-        <input id="start-title" name="startTitle" placeholder="Earth" required>
+        <div class="article-field">
+          <label for="start-title">Starting article</label>
+          <div class="input-row">
+            <input id="start-title" name="startTitle" placeholder="Earth" required>
+            <button class="secondary random-button" type="button" data-target="start-title" aria-label="Pick a popular starting article" title="Pick a popular article from yesterday's page views">Random</button>
+          </div>
+        </div>
 
-        <label for="goal-title">Goal article</label>
-        <input id="goal-title" name="goalTitle" placeholder="Solar System" required>
+        <div class="article-field">
+          <label for="goal-title">Goal article</label>
+          <div class="input-row">
+            <input id="goal-title" name="goalTitle" placeholder="Solar System" required>
+            <button class="secondary random-button" type="button" data-target="goal-title" aria-label="Pick a popular goal article" title="Pick a popular article from yesterday's page views">Random</button>
+          </div>
+        </div>
 
         <button id="start-button" type="submit">Start challenge</button>
       </form>
 
       <p id="error-message" class="error" role="alert" hidden></p>
-      <p class="hint">Browse Wikipedia and Google in this tab. Each page load on those sites after the start counts as one step.</p>
+      <p class="hint">Random picks come from yesterday's most-viewed English Wikipedia articles. Browse Wikipedia and Google in this tab; each page load after the start counts as one step.</p>
     </main>
     <script src="popup.js"></script>
   </body>
