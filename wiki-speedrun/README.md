@@ -11,7 +11,8 @@ host a separate wiki, and it needs no Python, Node.js, or build step.
 3. Turn on **Developer mode**.
 4. Select **Load unpacked** and choose the extracted `wiki-speedrun` folder
    (the folder containing `manifest.json`).
-5. Pin the extension if you want quick access from the browser toolbar.
+5. Pin the extension if you want quick access from the browser toolbar. The
+   extension's logo appears in the extensions list and on the toolbar.
 
 ## Play
 
