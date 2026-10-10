@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 330px;
+  margin: 0;
+  color: #172033;
+  background: #f5f7fb;
+  font: 14px/1.45 "Segoe UI", sans-serif;
+}
+
+main {
+  padding: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 21px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+.intro,
+.hint {
+  color: #556176;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+label {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #cbd3e1;
+  border-radius: 7px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+input:focus {
+  border-color: #3157c8;
+  outline: 2px solid #3157c833;
+}
+
+button {
+  margin-top: 7px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #3157c8;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2447ad;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.secondary {
+  width: 100%;
+  border: 1px solid #cbd3e1;
+  background: #fff;
+  color: #172033;
+}
+
+.secondary:hover {
+  background: #e9eef8;
+}
+
+#challenge-status {
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px solid #d7deea;
+  border-radius: 8px;
+  background: #fff;
+}
+
+#status-text {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.error {
+  color: #a12622;
+}
+
+.hint {
+  margin-top: 14px;
+  font-size: 12px;
+}
